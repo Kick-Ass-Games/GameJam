@@ -1,7 +1,7 @@
 extends Node
 
 func _process(delta):
-	#if GameTimer.is_time_up():
+	if GameTime
 		restart_game()
 
 func restart_game():
