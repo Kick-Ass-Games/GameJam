@@ -1,15 +1,19 @@
 extends Node2D
 
+var linternaActivada = false
+var timer_duration = 300  # 5 minutos en segundos 300s
+var light = 0
+var start_time = 0
+
 func _ready():
 	$Background_1.visible = true
 	$Background_2.visible = false
 	$Background_3.visible = false
 	start_time = Time.get_ticks_msec()
 
-var linternaActivada = false
-var timer_duration = 5  # 5 minutos = 300 segundos
-var start_time = 0
-var light = 0
+func _process(delta):
+	if is_time_up():
+		restart_game()
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_F:
@@ -21,16 +25,24 @@ func toggle_linterna():
 		$Background_1.visible = true
 		$Background_2.visible = false 
 		$Background_3.visible = false
-	if light == 1:
+	elif light == 1:
 		$Background_1.visible = false
 		$Background_2.visible = true
 		$Background_3.visible = false
-	if light == 2:
+	elif light == 2:
 		$Background_1.visible = false
 		$Background_2.visible = false
 		$Background_3.visible = true
-	if light == 3:
+	elif light == 3:
 		light = 0 
 		toggle_linterna()
-		
-	print(light) 
+
+func get_time_remaining():
+	var elapsed = (Time.get_ticks_msec() - start_time) / 1000.0
+	return max(0, timer_duration - elapsed)
+
+func is_time_up():
+	return get_time_remaining() <= 0
+
+func restart_game():
+	get_tree().reload_current_scene()
