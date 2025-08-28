@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdwtpstyq20dl"]
+
+[ext_resource type="Script" uid="uid://7kbjy3g3w3mu" path="res://Slime/children.gd" id="1_orwf3"]
+[ext_resource type="Texture2D" uid="uid://wlj3cejjdumh" path="res://Assets/Slime/Globulo1.png" id="1_uk0sj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_orwf3"]
+radius = 71.1126
+
+[sub_resource type="Curve2D" id="Curve2D_uk0sj"]
+
+[node name="Children" type="CharacterBody2D"]
+scale = Vector2(1.6, 1.6)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_orwf3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999996, 7.99998)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_uk0sj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -14)
+shape = SubResource("CircleShape2D_orwf3")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uk0sj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 620.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.132
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://ierwkqf1g1nf"]
+
+[ext_resource type="Script" uid="uid://b1apgf76av4cn" path="res://World/loop.gd" id="1_kikw0"]
+[ext_resource type="Texture2D" uid="uid://c5y04y2uo7fsh" path="res://Assets/BackGround.png" id="1_ugjyy"]
+[ext_resource type="PackedScene" uid="uid://clwvkbw7onfrr" path="res://Slime/slime.tscn" id="2_hhmk4"]
+[ext_resource type="PackedScene" uid="uid://bbfe8djjaidma" path="res://World/heart_pump.tscn" id="2_kikw0"]
+[ext_resource type="PackedScene" uid="uid://cejqcwxby5sjt" path="res://World/rock_floor.tscn" id="3_h2rt0"]
+[ext_resource type="PackedScene" uid="uid://knttjot8bh36" path="res://World/Fatngga.tscn" id="4_ybubx"]
+[ext_resource type="Script" uid="uid://dk4vitfbef4yy" path="res://World/spawn_zone.gd" id="6_06cx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikw0"]
+size = Vector2(1234, 1329)
+
+[node name="Loop" type="Node2D"]
+script = ExtResource("1_kikw0")
+enemy_scene = ExtResource("4_ybubx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1910.5, 97.5)
+scale = Vector2(96.1406, 22.5469)
+texture = ExtResource("1_ugjyy")
+
+[node name="HeartPump" parent="." instance=ExtResource("2_kikw0")]
+
+[node name="Slime" parent="HeartPump" instance=ExtResource("2_hhmk4")]
+
+[node name="Rock_Floor" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(0, 315)
+
+[node name="Rock_Floor2" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(-3, -292)
+
+[node name="Rock_Floor3" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(2960, 314)
+
+[node name="Rock_Floor4" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(2957, -293)
+
+[node name="ZonaFinal" type="Area2D" parent="."]
+position = Vector2(2261, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaFinal"]
+position = Vector2(607, -88.5)
+shape = SubResource("RectangleShape2D_kikw0")
+
+[node name="SpawnZone1" type="Marker2D" parent="." groups=["zonas_spawn"]]
+position = Vector2(576, -163)
+script = ExtResource("6_06cx5")
+width = 100.0
+height = 100.0
+
+[node name="SpawnZone2" type="Marker2D" parent="." groups=["zonas_spawn"]]
+position = Vector2(1832, 157)
+script = ExtResource("6_06cx5")
+width = 1.0
+height = 1.0
+
+[connection signal="body_entered" from="ZonaFinal" to="." method="_on_zona_final_body_entered"]

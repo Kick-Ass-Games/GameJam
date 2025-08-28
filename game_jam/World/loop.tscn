@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdxp00d7tw5hs"]
+
+[ext_resource type="Script" uid="uid://b1apgf76av4cn" path="res://World/loop.gd" id="1_kikw0"]
+[ext_resource type="PackedScene" uid="uid://clwvkbw7onfrr" path="res://Slime/slime.tscn" id="2_hhmk4"]
+[ext_resource type="PackedScene" uid="uid://bbfe8djjaidma" path="res://World/heart_pump.tscn" id="2_kikw0"]
+[ext_resource type="PackedScene" uid="uid://cejqcwxby5sjt" path="res://World/rock_floor.tscn" id="3_h2rt0"]
+[ext_resource type="Texture2D" uid="uid://cq8x7yyw18dca" path="res://Assets/World/Venasfondo.png" id="3_saye4"]
+[ext_resource type="PackedScene" uid="uid://knttjot8bh36" path="res://World/Fatngga.tscn" id="4_ybubx"]
+[ext_resource type="Script" uid="uid://dk4vitfbef4yy" path="res://World/spawn_zone.gd" id="6_06cx5"]
+[ext_resource type="PackedScene" uid="uid://obcij1d1om2q" path="res://Pathogens/virus-covid.tscn" id="6_g23m0"]
+[ext_resource type="Script" uid="uid://rn2hf72dgbga" path="res://World/zona_final.gd" id="7_g23m0"]
+[ext_resource type="PackedScene" uid="uid://dpoyquits3x6m" path="res://Cells/red_blood_cell.tscn" id="8_saye4"]
+[ext_resource type="PackedScene" uid="uid://jcnh74431ckl" path="res://pause_menu.tscn" id="9_g2ile"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikw0"]
+size = Vector2(1234, 3125)
+
+[node name="Loop" type="Node2D"]
+script = ExtResource("1_kikw0")
+enemy_scene = ExtResource("4_ybubx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20292.5, 468)
+scale = Vector2(31.605, 1.57)
+texture = ExtResource("3_saye4")
+
+[node name="HeartPump" parent="." instance=ExtResource("2_kikw0")]
+
+[node name="Slime" parent="HeartPump" instance=ExtResource("2_hhmk4")]
+
+[node name="Virus-Covid" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1238, -110)
+
+[node name="Virus-Covid19" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1274, -355)
+
+[node name="Virus-Covid20" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1003, -217)
+
+[node name="Virus-Covid21" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(867, -425)
+
+[node name="Virus-Covid22" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(769, -188)
+
+[node name="Virus-Covid23" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(614, -388)
+
+[node name="Virus-Covid24" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1470, -278)
+
+[node name="Virus-Covid25" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1761, -69)
+
+[node name="Virus-Covid26" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2048, 91)
+
+[node name="Virus-Covid27" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2521, 474)
+
+[node name="Virus-Covid28" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3047, 474)
+
+[node name="Virus-Covid29" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3497, 357)
+
+[node name="Virus-Covid2" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2215, 262)
+
+[node name="Virus-Covid5" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3251, -174)
+
+[node name="Virus-Covid6" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2976, -14)
+
+[node name="Virus-Covid7" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2459, -380)
+
+[node name="Virus-Covid8" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2419, 71)
+
+[node name="Virus-Covid9" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3596, -92)
+
+[node name="Virus-Covid12" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3838, 262)
+
+[node name="Virus-Covid13" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3926, -110)
+
+[node name="Virus-Covid14" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3273, 71)
+
+[node name="Virus-Covid30" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3568, 105)
+
+[node name="Virus-Covid31" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3568, -380)
+
+[node name="Virus-Covid32" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(4246, -503)
+
+[node name="Virus-Covid33" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(4170, -266)
+
+[node name="Virus-Covid34" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(4342, 262)
+
+[node name="Virus-Covid15" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2730, 105)
+
+[node name="Virus-Covid16" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2071, -425)
+
+[node name="Virus-Covid17" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1898, -174)
+
+[node name="Virus-Covid18" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(1630, -425)
+
+[node name="Virus-Covid10" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3855, -366)
+
+[node name="Virus-Covid11" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(3135, -458)
+
+[node name="Virus-Covid3" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2597, -139)
+
+[node name="Virus-Covid4" parent="HeartPump" instance=ExtResource("6_g23m0")]
+position = Vector2(2869, 287)
+
+[node name="Red-Blood-Cell" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(1587, -142)
+
+[node name="Red-Blood-Cell2" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(2147, -150)
+
+[node name="Red-Blood-Cell3" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(2535, 272)
+
+[node name="Red-Blood-Cell4" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(2905, -200)
+
+[node name="Red-Blood-Cell5" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(3300, 272)
+
+[node name="Red-Blood-Cell6" parent="HeartPump" instance=ExtResource("8_saye4")]
+position = Vector2(2678, 527)
+
+[node name="ZonaFinal" type="Area2D" parent="."]
+position = Vector2(43581, 294)
+script = ExtResource("7_g23m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaFinal"]
+position = Vector2(607, 247.5)
+shape = SubResource("RectangleShape2D_kikw0")
+
+[node name="SpawnZone1" type="Marker2D" parent="." groups=["zonas_spawn"]]
+position = Vector2(576, -163)
+script = ExtResource("6_06cx5")
+width = 100.0
+height = 100.0
+
+[node name="SpawnZone2" type="Marker2D" parent="." groups=["zonas_spawn"]]
+position = Vector2(1832, 157)
+script = ExtResource("6_06cx5")
+width = 1.0
+height = 1.0
+
+[node name="Rock_Floor" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(31085, 1728)
+scale = Vector2(26.56, 1)
+
+[node name="Rock_Floor2" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(31116, -807)
+scale = Vector2(26.56, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_g2ile")]
+
+[node name="Rock" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(1003, 179)
+
+[connection signal="beat" from="HeartPump" to="HeartPump/Slime" method="_on_heart_pump_beat"]
+[connection signal="area_entered" from="ZonaFinal" to="HeartPump/Slime" method="_on_zona_final_area_entered"]
+[connection signal="body_entered" from="ZonaFinal" to="." method="_on_zona_final_body_entered"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://clwvkbw7onfrr"]
+
+[ext_resource type="Script" uid="uid://dhtvx5a108lmp" path="res://Slime/slime.gd" id="1_8yoi5"]
+[ext_resource type="PackedScene" uid="uid://bdwtpstyq20dl" path="res://Cells/children.tscn" id="2_dk5ir"]
+[ext_resource type="Texture2D" uid="uid://wlj3cejjdumh" path="res://Assets/Slime/Globulo1.png" id="2_iimiv"]
+[ext_resource type="PackedScene" uid="uid://b6jp0scdandet" path="res://Slime/camera_2d.tscn" id="2_p6lpo"]
+[ext_resource type="Shader" uid="uid://by0o712shl6bq" path="res://Slime/slime.gdshader" id="2_r11pe"]
+[ext_resource type="Script" uid="uid://bu8pk17vo1khw" path="res://Slime/camera.gd" id="4_iimiv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dk5ir"]
+shader = ExtResource("2_r11pe")
+shader_parameter/vp = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iimiv"]
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r11pe"]
+
+[node name="Slime" type="CharacterBody2D" groups=["jugador"]]
+script = ExtResource("1_8yoi5")
+children_scene = ExtResource("2_dk5ir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dk5ir")
+position = Vector2(13.82, 27.225)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iimiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["jugador"]]
+scale = Vector2(3.43, 3.43)
+shape = SubResource("CircleShape2D_iimiv")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_p6lpo")]
+script = ExtResource("4_iimiv")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(13.795, 13.795)
+shape = SubResource("CircleShape2D_r11pe")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

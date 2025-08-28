@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://jcnh74431ckl"]
+
+[ext_resource type="Script" uid="uid://c62ujsh3unkyp" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="LabelSettings" uid="uid://dc0wrhtr20tft" path="res://Assets/Fonts/label_title_settings.tres" id="2_05uyy"]
+[ext_resource type="Theme" uid="uid://8pfbloaj00ay" path="res://Assets/Fonts/button_theme.tres" id="3_p81d2"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_hdmo1")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133196, 0.133196, 0.133196, 0.54902)
+
+[node name="pause_menu" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -64.0
+offset_right = 60.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/pause_menu"]
+layout_mode = 2
+text = "Pause Menu"
+label_settings = ExtResource("2_05uyy")
+
+[node name="resume_button" type="Button" parent="CanvasLayer/pause_menu"]
+layout_mode = 2
+theme = ExtResource("3_p81d2")
+text = "Resume Game"
+
+[node name="settings_button" type="Button" parent="CanvasLayer/pause_menu"]
+layout_mode = 2
+theme = ExtResource("3_p81d2")
+text = "Settings"
+
+[node name="quit_button" type="Button" parent="CanvasLayer/pause_menu"]
+layout_mode = 2
+theme = ExtResource("3_p81d2")
+text = "Quit Game"
+
+[node name="settings_menu" type="GridContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -52.5
+offset_right = 31.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/settings_menu"]
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("2_05uyy")
+
+[node name="Volume" type="Label" parent="CanvasLayer/settings_menu"]
+layout_mode = 2
+theme = ExtResource("3_p81d2")
+text = "volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/settings_menu"]
+layout_mode = 2
+
+[node name="back_button" type="Button" parent="CanvasLayer/settings_menu"]
+layout_mode = 2
+theme = ExtResource("3_p81d2")
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/pause_menu/resume_button" to="CanvasLayer" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/settings_button" to="CanvasLayer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/quit_button" to="CanvasLayer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/settings_menu/back_button" to="CanvasLayer" method="_on_back_button_pressed"]

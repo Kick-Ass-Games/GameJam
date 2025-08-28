@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://gepi1yma02v5"]
+
+[ext_resource type="Texture2D" uid="uid://c5y04y2uo7fsh" path="res://Assets/BackGround.png" id="1_1xf61"]
+[ext_resource type="Script" uid="uid://b6ja120k1empw" path="res://Global.gd" id="1_fjrbr"]
+[ext_resource type="PackedScene" uid="uid://clwvkbw7onfrr" path="res://Slime/slime.tscn" id="2_fjrbr"]
+[ext_resource type="PackedScene" uid="uid://cejqcwxby5sjt" path="res://World/rock_floor.tscn" id="3_t1mlf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrbr"]
+size = Vector2(162, 548)
+
+[node name="Loop" type="Node2D"]
+script = ExtResource("1_fjrbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1889, 135)
+scale = Vector2(96.1406, 22.5469)
+texture = ExtResource("1_1xf61")
+
+[node name="Slime" parent="." instance=ExtResource("2_fjrbr")]
+
+[node name="Rock_Floor" parent="." instance=ExtResource("3_t1mlf")]
+position = Vector2(0, 315)
+
+[node name="Rock_Floor2" parent="." instance=ExtResource("3_t1mlf")]
+position = Vector2(-3, -292)
+
+[node name="Rock_Floor3" parent="." instance=ExtResource("3_t1mlf")]
+position = Vector2(2960, 314)
+
+[node name="Rock_Floor4" parent="." instance=ExtResource("3_t1mlf")]
+position = Vector2(2957, -293)
+
+[node name="ZonaFinal" type="Area2D" parent="."]
+position = Vector2(3887, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaFinal"]
+position = Vector2(71, 6)
+shape = SubResource("RectangleShape2D_fjrbr")
+
+[node name="SpawnArea" type="Marker2D" parent="."]
+position = Vector2(1626, 2)
+
+[connection signal="body_entered" from="ZonaFinal" to="." method="_on_zona_final_body_entered"]

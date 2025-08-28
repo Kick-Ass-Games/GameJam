@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://ierwkqf1g1nf"]
+
+[ext_resource type="Script" uid="uid://b1apgf76av4cn" path="res://World/loop.gd" id="1_kikw0"]
+[ext_resource type="Texture2D" uid="uid://c5y04y2uo7fsh" path="res://Assets/BackGround.png" id="1_ugjyy"]
+[ext_resource type="PackedScene" uid="uid://clwvkbw7onfrr" path="res://Slime/slime.tscn" id="2_hhmk4"]
+[ext_resource type="PackedScene" uid="uid://cejqcwxby5sjt" path="res://World/rock_floor.tscn" id="3_h2rt0"]
+[ext_resource type="PackedScene" uid="uid://knttjot8bh36" path="res://World/Fatngga.tscn" id="4_ybubx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikw0"]
+size = Vector2(162, 548)
+
+[node name="Loop" type="Node2D"]
+script = ExtResource("1_kikw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1910.5, 97.5)
+scale = Vector2(96.1406, 22.5469)
+texture = ExtResource("1_ugjyy")
+
+[node name="Slime" parent="." instance=ExtResource("2_hhmk4")]
+
+[node name="Rock_Floor" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(0, 315)
+
+[node name="Rock_Floor2" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(-3, -292)
+
+[node name="Rock_Floor3" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(2960, 314)
+
+[node name="Rock_Floor4" parent="." instance=ExtResource("3_h2rt0")]
+position = Vector2(2957, -293)
+
+[node name="Rock" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(303, -144)
+
+[node name="Rock3" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(598, 73)
+
+[node name="Rock9" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(528, 255)
+
+[node name="Rock10" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(788, 211)
+
+[node name="Rock2" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(376, 104)
+
+[node name="Rock7" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(313, 37)
+
+[node name="Rock8" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(337, -48)
+
+[node name="Rock4" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(808, -85)
+
+[node name="Rock5" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(272, 211)
+
+[node name="Rock6" parent="." instance=ExtResource("4_ybubx")]
+position = Vector2(962, 73)
+
+[node name="SpawnArea" type="Marker2D" parent="."]
+position = Vector2(1626, 2)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2261, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(71, 6)
+shape = SubResource("RectangleShape2D_kikw0")

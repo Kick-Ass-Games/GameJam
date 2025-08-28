@@ -46,3 +46,5 @@ func is_time_up():
 
 func restart_game():
 	get_tree().reload_current_scene()
+	
+#jkhajkshd

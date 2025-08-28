@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://k3v30qi1mx6"]
+
+[ext_resource type="Script" uid="uid://b1apgf76av4cn" path="res://World/loop.gd" id="1_tvxwr"]
+[ext_resource type="PackedScene" uid="uid://knttjot8bh36" path="res://World/Fatngga.tscn" id="2_70s1k"]
+[ext_resource type="Texture2D" uid="uid://c5y04y2uo7fsh" path="res://Assets/BackGround.png" id="3_dmc65"]
+[ext_resource type="PackedScene" uid="uid://bbfe8djjaidma" path="res://World/heart_pump.tscn" id="4_irsk6"]
+[ext_resource type="PackedScene" uid="uid://clwvkbw7onfrr" path="res://Slime/slime.tscn" id="5_q8qlr"]
+[ext_resource type="Script" uid="uid://dk4vitfbef4yy" path="res://World/spawn_zone.gd" id="6_4ucki"]
+[ext_resource type="PackedScene" uid="uid://cejqcwxby5sjt" path="res://World/rock_floor.tscn" id="7_4jae0"]
+[ext_resource type="PackedScene" uid="uid://bdwtpstyq20dl" path="res://Cells/children.tscn" id="8_70s1k"]
+[ext_resource type="PackedScene" uid="uid://jcnh74431ckl" path="res://pause_menu.tscn" id="9_dmc65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikw0"]
+size = Vector2(162, 548)
+
+[node name="Loop2" type="Node2D"]
+script = ExtResource("1_tvxwr")
+cantidad_enemigos = null
+enemy_scene = ExtResource("2_70s1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20292.5, 468)
+scale = Vector2(891.453, 53.4687)
+texture = ExtResource("3_dmc65")
+
+[node name="HeartPump" parent="." instance=ExtResource("4_irsk6")]
+
+[node name="Slime" parent="HeartPump" instance=ExtResource("5_q8qlr")]
+
+[node name="Children" parent="HeartPump" node_paths=PackedStringArray("player") instance=ExtResource("8_70s1k")]
+player = NodePath("../Slime")
+
+[node name="ZonaFinal" type="Area2D" parent="."]
+position = Vector2(2261, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaFinal"]
+position = Vector2(71, 6)
+shape = SubResource("RectangleShape2D_kikw0")
+
+[node name="SpawnZone1" type="Marker2D" parent="."]
+position = Vector2(576, -163)
+script = ExtResource("6_4ucki")
+width = 1.0
+height = 1.0
+
+[node name="SpawnZone2" type="Marker2D" parent="."]
+position = Vector2(1832, 157)
+script = ExtResource("6_4ucki")
+width = 1.0
+height = 1.0
+
+[node name="Rock_Floor" parent="." instance=ExtResource("7_4jae0")]
+position = Vector2(31085, 1728)
+scale = Vector2(26.56, 1)
+
+[node name="Rock_Floor2" parent="." instance=ExtResource("7_4jae0")]
+position = Vector2(31116, -807)
+scale = Vector2(26.56, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_dmc65")]
+
+[connection signal="area_entered" from="ZonaFinal" to="HeartPump/Slime" method="_on_zona_final_area_entered"]
+[connection signal="body_entered" from="ZonaFinal" to="." method="_on_zona_final_body_entered"]

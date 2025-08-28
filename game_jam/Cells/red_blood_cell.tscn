@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpoyquits3x6m"]
+
+[ext_resource type="Script" uid="uid://bdks07lg3q031" path="res://Pathogens/virus_covid.gd" id="1_u1w2s"]
+[ext_resource type="Texture2D" uid="uid://c6ke5k3gfr7k5" path="res://Assets/Cells/Globulorojo.png" id="2_u1w2s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1w2s"]
+
+[node name="Red-Blood-Cell" type="Area2D"]
+script = ExtResource("1_u1w2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.11, -3.905)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("2_u1w2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.9, -2.785)
+rotation = 0.345575
+scale = Vector2(4.565, 4.165)
+shape = SubResource("CapsuleShape2D_u1w2s")

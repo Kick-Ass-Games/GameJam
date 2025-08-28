@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw0gwobkhltrm"]
+
+[ext_resource type="Script" uid="uid://dk4vitfbef4yy" path="res://World/spawn_zone.gd" id="1_x4cll"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uqrer"]
+
+[node name="SpawnZone" type="Node2D" groups=["zonas_spawn"]]
+script = ExtResource("1_x4cll")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(25.75, 25.75)
+scale = Vector2(52.5, 52.5)
+texture = SubResource("CanvasTexture_uqrer")

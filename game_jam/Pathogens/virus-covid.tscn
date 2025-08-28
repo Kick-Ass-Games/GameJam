@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://obcij1d1om2q"]
+
+[ext_resource type="Texture2D" uid="uid://u0f0kpecctqj" path="res://Assets/Pathogens/Covid.png" id="1_gl0k8"]
+[ext_resource type="Script" uid="uid://bdks07lg3q031" path="res://Pathogens/virus_covid.gd" id="1_vfjh4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfjh4"]
+
+[node name="Virus-Covid" type="Area2D" groups=["Virus"]]
+script = ExtResource("1_vfjh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.11, -3.905)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("1_gl0k8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Virus"]]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_vfjh4")
